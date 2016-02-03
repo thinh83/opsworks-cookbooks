@@ -1,5 +1,8 @@
 include_recipe 'tomcat::install'
 include_recipe 'tomcat::service'
+include_recipe 'tomcat::container_config'
+include_recipe 'apache2'
+include_recipe 'tomcat::apache_tomcat_bind'
 
 service 'tomcat' do
   action :enable
@@ -13,7 +16,3 @@ bash '(re-)start autofs earlier' do
   EOC
   notifies :restart, resources(:service => 'tomcat')
 end
-
-include_recipe 'tomcat::container_config'
-include_recipe 'apache2'
-include_recipe 'tomcat::apache_tomcat_bind'
