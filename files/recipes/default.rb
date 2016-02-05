@@ -11,5 +11,5 @@ cookbook_file "Copy a file" do
   mode "0755"
   owner "ubuntu"
   path "/etc/apache2/sites-enabled/kemper"
-  source "files/kemper"  
+  source "kemper.txt"  
 end
