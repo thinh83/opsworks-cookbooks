@@ -10,6 +10,6 @@ cookbook_file "Copy a file" do
   group "root"
   mode "0755"
   owner "ubuntu"
-  path "/etc/apache2/sites-enabled/kemper"
-  source "kemper.txt"  
+  path "/etc/apache2/sites-enabled/kemper.txt"
+  source "kemper.txt" 
 end
