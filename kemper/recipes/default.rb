@@ -13,3 +13,15 @@ cookbook_file "Copy a file" do
   path "/etc/apache2/sites-enabled/kemper.txt"
   source "kemper.txt" 
 end
+
+script "config apache" do
+  interpreter "bash"
+  user "root"
+  cwd "/tmp"
+  code <<-EOH
+    sudo a2enmod proxy
+    sudo a2enmod proxy_http
+    sudo a2dissite default
+	sudo service apache2 restart
+  EOH
+end
